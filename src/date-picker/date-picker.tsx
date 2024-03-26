@@ -75,23 +75,30 @@ function DatePicker({
     restProps
   );
   const datePickerState = useDatePickerState(convertedProps);
-  const { buttonProps, fieldProps, groupProps } = useDatePicker(
-    convertedProps,
-    datePickerState,
-    datePickerRef
-  );
+  const {
+    buttonProps,
+    fieldProps,
+    groupProps,
+    errorMessageProps,
+    validationErrors,
+  } = useDatePicker(convertedProps, datePickerState, datePickerRef);
 
   return (
-    <DateField
-      {...{
-        buttonProps,
-        datePickerRef,
-        groupProps,
-        locale,
-        size,
-        ...fieldProps,
-      }}
-    />
+    <div>
+      <DateField
+        {...{
+          buttonProps,
+          datePickerRef,
+          groupProps,
+          locale,
+          size,
+          ...fieldProps,
+        }}
+      />
+      {datePickerState.isInvalid && (
+        <span {...errorMessageProps}>{validationErrors}</span>
+      )}
+    </div>
   );
 }
 
