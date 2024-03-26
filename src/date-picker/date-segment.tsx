@@ -17,10 +17,8 @@ function DateSegment({ segment, state }: DateSegmentProps) {
   const ref = useRef(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
 
-  // Always render the placeholder as hidden, to prevent any layout shift (especially important if placeholder is translated)
   return (
     <span {...segmentProps} ref={ref}>
-      <span aria-hidden="true">{segment.placeholder}</span>
       {segment.text}
     </span>
   );

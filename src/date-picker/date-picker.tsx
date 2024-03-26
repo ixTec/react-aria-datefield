@@ -75,20 +75,11 @@ function DatePicker({
     restProps
   );
   const datePickerState = useDatePickerState(convertedProps);
-  const {
-    buttonProps,
-    // calendarProps,
-    // descriptionProps,
-    // errorMessageProps,
-    fieldProps,
-    groupProps,
-    // labelProps,
-    // validationErrors,
-  } = useDatePicker(convertedProps, datePickerState, datePickerRef);
-  // TODO: `parseDate` for any values passed in
-
-  // TODO: Some rest props are not being passed correctly and therefore messing with things
-  // e.g. id, aria-*, data-testid etc
+  const { buttonProps, fieldProps, groupProps } = useDatePicker(
+    convertedProps,
+    datePickerState,
+    datePickerRef
+  );
 
   return (
     <DateField
@@ -101,39 +92,6 @@ function DatePicker({
         ...fieldProps,
       }}
     />
-    // <div css={wrapperStyle({})}>
-    //   {label !== undefined && (
-    //     <Label {...labelProps} size={size}>
-    //       {label}
-    //     </Label>
-    //   )}
-    //   {description != null && (
-    //     <Description {...descriptionProps} size={size}>
-    //       {description}
-    //     </Description>
-    //   )}
-    //   <Calendar
-    //     {...calendarProps}
-    //     isOpen={datePickerState.isOpen}
-    //     setIsOpen={datePickerState.setOpen}
-    //     target={
-    //       <DateField
-    //         {...{
-    //           buttonProps,
-    //           datePickerRef,
-    //           groupProps,
-    //           size,
-    //           ...fieldProps,
-    //         }}
-    //       />
-    //     }
-    //   />
-    //   {datePickerState.isInvalid && (
-    //     <Error {...errorMessageProps} size={size}>
-    //       {validationErrors}
-    //     </Error>
-    //   )}
-    // </div>
   );
 }
 
