@@ -1,4 +1,5 @@
-import { DatePicker } from "components/date-picker";
+import { DatePicker as TranspiledDatePicker } from "transpiled/date-picker";
+import DatePicker from "./components/external/date-picker/date-picker";
 import { css } from "@emotion/react";
 import { getLocalTimeZone, parseDate, today } from "@internationalized/date";
 
@@ -17,6 +18,12 @@ function Workbench() {
         maxValue={parseDate("2024-04-23")}
         minValue={today(getLocalTimeZone())}
       />
+      {/* <TranspiledDatePicker
+        label="Test"
+        defaultValue={parseDate("2024-03-30")}
+        maxValue={parseDate("2024-04-23")}
+        minValue={today(getLocalTimeZone())}
+      /> */}
     </div>
   );
 }

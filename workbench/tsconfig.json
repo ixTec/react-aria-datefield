@@ -13,8 +13,8 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "components": ["../dist"],
-      "components/*": ["../dist/*"]
+      "transpiled": ["../dist"],
+      "transpiled/*": ["../dist/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
